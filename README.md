@@ -1,2 +1,2 @@
-# almoeizomer-rgb.github.io
+# almoeizomer.github.io
 Personal website – Almouiz Omer
