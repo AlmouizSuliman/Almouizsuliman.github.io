@@ -57,8 +57,12 @@ h2{font-size:28px;margin:0 0 20px}
 .contact{background:var(--ink);color:var(--bg);border-radius:8px;padding:30px 26px;margin-top:20px}
 .contact h2{margin-bottom:8px}
 .contact p{margin:0 0 18px;opacity:.85}
+.contact .actions{display:flex;flex-wrap:wrap;gap:10px}
 .contact .pill{border-color:var(--bg);color:var(--bg)}
 .contact .pill:hover{background:var(--bg);color:var(--ink)}
+.contact .wa{background:var(--hi);border-color:var(--hi);color:var(--hi-ink);font-weight:600}
+.contact .wa:hover{background:var(--bg);border-color:var(--bg);color:var(--ink)}
+.contact .num{direction:ltr;text-align:start;margin:16px 0 0;opacity:.85;font-size:15px}
 footer{padding:36px 22px 28px;text-align:center;color:var(--muted);font-size:14px}
 @media (max-width:520px){.stats div{padding-inline:8px}.stats span{font-size:12.5px}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
@@ -123,8 +127,12 @@ footer{padding:36px 22px 28px;text-align:center;color:var(--muted);font-size:14p
     <div class="contact">
       <h2 data-k="contactH"></h2>
       <p data-k="contactP"></p>
-      <a class="pill" id="mail" href="#" hidden></a>
-      <span id="mailHint" data-k="mailHint"></span>
+      <div class="actions">
+        <a class="pill wa" id="wa" target="_blank" rel="noopener" data-k="waBtn"></a>
+        <a class="pill" id="call" data-k="callBtn"></a>
+        <a class="pill" id="mail" data-k="mailBtn"></a>
+      </div>
+      <p class="num" id="num"></p>
     </div>
   </section>
 </main>
@@ -132,8 +140,9 @@ footer{padding:36px 22px 28px;text-align:center;color:var(--muted);font-size:14p
 <footer>© <span id="y"></span> Almouiz Omer</footer>
 
 <script>
-// Edit your email here to show the contact button.
-var EMAIL = "";
+var EMAIL = "almoeizomer@gmail.com";
+var PHONE = "966591609376";
+var PHONE_SHOWN = "+966 59 160 9376";
 
 var T = {
 ar:{
@@ -152,8 +161,7 @@ eduH:"التعليم والعضويات",
 edu1t:"بكالوريوس الهندسة المدنية", edu1d:"جامعة العلوم والتكنولوجيا، الخرطوم – 2017",
 edu2t:"عضوية الهيئات الهندسية", edu2d:"مجلس المهندسين السعودي · مجلس المهندسين السوداني · دورة PMP",
 contactH:"لنتحدث", contactP:"للتعاون أو الفرص المهنية أو أي استفسار، يسعدني التواصل.",
-mailBtn:"أرسل بريدًا", mailHint:"يمكنك إضافة بريدك الإلكتروني من أعلى ملف الموقع.",
-now:"حتى الآن",
+waBtn:"واتساب", callBtn:"اتصال", mailBtn:"بريد إلكتروني",
 exp:[
 ["2024","بيرو فيريتاس – مهندس مدني، نيوم","مراقبة الجودة والتفتيش وإصدار تقارير عدم المطابقة (NCR).",1],
 ["2021 – 2024","ساتكو – مهندس مشاريع، نيوم","مشاريع معسكر FCO ومعسكر NCV-3، وتشمل أعمال الطرق."],
@@ -183,8 +191,7 @@ eduH:"Education & memberships",
 edu1t:"BSc Civil Engineering", edu1d:"University of Science and Technology, Khartoum – 2017",
 edu2t:"Professional memberships", edu2d:"Saudi Council of Engineers · Sudanese Engineering Council · PMP course completed",
 contactH:"Let’s talk", contactP:"For collaboration, career opportunities or any question, I’d be glad to hear from you.",
-mailBtn:"Send an email", mailHint:"Add your email at the top of the site file to show a contact button.",
-now:"Present",
+waBtn:"WhatsApp", callBtn:"Call", mailBtn:"Email",
 exp:[
 ["2024 – Present","Bureau Veritas – Civil Engineer, NEOM","QA/QC oversight, inspections and non-conformance reports (NCRs).",1],
 ["2021 – 2024","SATCO – Project Engineer, NEOM","FCO Camp and NCV-3 Camp projects, including road works."],
@@ -217,9 +224,10 @@ function render(){
     return '<div class="box"><h3>'+esc(b[0])+'</h3><ul>'+b[1].map(function(x){return '<li>'+esc(x)+'</li>'}).join("")+'</ul></div>';
   }).join("");
   document.getElementById("tags").innerHTML = d.tags.map(function(t){return '<li>'+esc(t)+'</li>'}).join("");
-  var mail = document.getElementById("mail"), hint = document.getElementById("mailHint");
-  if(EMAIL){ mail.hidden=false; mail.href="mailto:"+EMAIL; mail.textContent=d.mailBtn; hint.hidden=true; }
-  else { mail.hidden=true; hint.hidden=false; }
+  document.getElementById("mail").href = "mailto:" + EMAIL;
+  document.getElementById("call").href = "tel:+" + PHONE;
+  document.getElementById("wa").href = "https://wa.me/" + PHONE;
+  document.getElementById("num").textContent = PHONE_SHOWN + " · " + EMAIL;
 }
 
 document.getElementById("lang").addEventListener("click",function(){
