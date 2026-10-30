@@ -1,0 +1,43 @@
+# Almouiz Suliman — content management
+backend:
+  name: github
+  repo: AlmouizSuliman/Almouizsuliman.github.io
+  branch: main
+  auth_methods:
+    - token
+
+app_title: Almouiz Suliman — Website Admin
+media_folder: uploads
+public_folder: /uploads
+
+collections:
+  - name: website
+    label: Website content
+    files:
+      - name: profile
+        label: Profile and homepage
+        file: content/site.json
+        format: json
+        fields:
+          - label: English content
+            name: en
+            widget: object
+            fields:
+              - { label: Availability banner, name: availabilityText, widget: string, required: false }
+              - { label: Professional title, name: role, widget: string, required: false }
+              - { label: Introduction, name: lead, widget: text, required: false }
+              - { label: About — paragraph 1, name: aboutP1, widget: text, required: false }
+              - { label: About — paragraph 2, name: aboutP2, widget: text, required: false }
+              - { label: Contact heading, name: contactTitle, widget: string, required: false }
+              - { label: Contact description, name: contactText, widget: text, required: false }
+          - label: المحتوى العربي
+            name: ar
+            widget: object
+            fields:
+              - { label: شريط التوفر للفرص, name: availabilityText, widget: string, required: false }
+              - { label: المسمى المهني, name: role, widget: string, required: false }
+              - { label: المقدمة الرئيسية, name: lead, widget: text, required: false }
+              - { label: نبذة عني — الفقرة الأولى, name: aboutP1, widget: text, required: false }
+              - { label: نبذة عني — الفقرة الثانية, name: aboutP2, widget: text, required: false }
+              - { label: عنوان التواصل, name: contactTitle, widget: string, required: false }
+              - { label: وصف التواصل, name: contactText, widget: text, required: false }
