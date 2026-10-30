@@ -1,2 +1,11 @@
-# almoeizomer.github.io
-Personal website – Almouiz Omer
+# Almouiz Suliman — Civil Engineer
+
+**Professional portfolio:** https://almoeizomer-rgb.github.io/
+
+Civil Engineer with 9+ years of experience across construction, roads, earthworks, project planning, QA/QC and civil infrastructure, including major project experience in NEOM, Saudi Arabia.
+
+- **Portfolio:** [almoeizomer-rgb.github.io](https://almoeizomer-rgb.github.io/)
+- **Contact:** [Email](mailto:almoeizomer@gmail.com) · [WhatsApp](https://wa.me/966591609376)
+- **Languages:** Arabic & English
+
+The portfolio is available in both Arabic and English and is designed for desktop and mobile.
