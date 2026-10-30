@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://almoeizomer-rgb.github.io/sitemap.xml
